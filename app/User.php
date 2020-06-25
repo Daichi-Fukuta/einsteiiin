@@ -43,4 +43,9 @@ class User extends Authenticatable
         'name' => 'required|min:3',
         'email' => 'required|email',
     );
+
+    public function posts()
+    {
+      return $this->hasMany('App\Post');
+    }
 }

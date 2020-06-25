@@ -84,6 +84,8 @@
                 <div class="title m-b-md">
                     ようこそ！
                     Hiitaへ！
+                    <br>
+                    <a href="/">投稿一覧へ</a>
                 </div>
             </div>
         </div>

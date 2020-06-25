@@ -13,13 +13,22 @@
                         </div>
                     @endif
                     <p>{{ $user->name }}</p>
+                    <table>
+                        <tr><th>投稿</th></tr>
+                        @if ($user->posts != null)
+                            @foreach ($user->posts as $post)
+                                <tr><td>{{ $post->content }}</td></tr>
+                            @endforeach
+                        @endif
+                        <tr><td></td></tr>
+                    </table>
                     @if ($login_user->id == $user->id)
-                    <p><a href="{{ route('user_edit', ['id' => $login_user->id]) }}">編集</a></p>
-                    <form action="{{ route('user_remove', ['id' => $login_user->id]) }}" method="post">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{ $login_user->id }}">
-                        <input type="submit", value="削除" onclick='return confirm("このアカウント削除しますか？")'>
-                    </form>
+                        <p><a href="{{ route('user_edit', ['id' => $login_user->id]) }}">編集</a></p>
+                        <form action="{{ route('user_remove', ['id' => $login_user->id]) }}" method="post">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="id" value="{{ $login_user->id }}">
+                            <input type="submit" value="削除" onclick='return confirm("このアカウント削除しますか？")'>
+                        </form>
                     @endif
                 </div>
             </div>

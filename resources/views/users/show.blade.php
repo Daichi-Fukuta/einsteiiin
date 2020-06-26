@@ -1,38 +1,52 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ $user->name }}さん</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <p>{{ $user->name }}</p>
-                    <table>
-                        <tr><th>投稿</th></tr>
-                        @if ($user->posts != null)
-                            @foreach ($user->posts as $post)
-                                <tr><td>{{ $post->content }}</td></tr>
-                            @endforeach
-                        @endif
-                        <tr><td></td></tr>
-                    </table>
-                    @if ($login_user->id == $user->id)
-                        <p><a href="{{ route('user_edit', ['id' => $login_user->id]) }}">編集</a></p>
-                        <form action="{{ route('user_remove', ['id' => $login_user->id]) }}" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{ $login_user->id }}">
-                            <input type="submit" value="削除" onclick='return confirm("このアカウント削除しますか？")'>
-                        </form>
-                    @endif
+@if ($login_user)
+    <div class="m-3">
+        <div class="card col-3 float-left p-3">
+            <span class="h1">{{ $user->name }}</span>
+            @if ($login_user->id == $user->id)
+                <span><a href="{{ route('user_edit', ['id' => $login_user->id]) }}">編集</a></span>
+            @endif
+            <hr>
+            <p>自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
+                自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
+                自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
+                自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
+            </p>
+            <p>こんな感じこんな感じこんな感じこんな感じこんな感じこんな感じこんな感じこんな感じ</p>
+            <hr>
+            <hr>
+            <hr>
+            <h4>ToDo</h4>
+            <hr>
+            <ul>
+                <li>ToDo</li><br>
+                <li>ToDo</li><br>
+                <li>ToDo</li><br>
+                <li>ToDo</li><br>
+                <li>ToDo</li><br>
+            </ul>
+        </div>
+        
+        @if ($posts->count() == 0)
+            <div class="col-9 center-block float-right ">
+                <div class="card p-2 text-center">
+                  投稿がありません。
                 </div>
             </div>
-        </div>
+        @else
+            <div class="col-9 center-block  float-right">
+                @foreach ($posts as $post)
+                    <div class="card p-2">
+                        <a class="text-dark" href="/posts/{{ $post->id }}">
+                          <h4>{{ $post->user->name }}</h4>
+                          <p>{{ $post->content }}</p>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
-</div>
+@endif
 @endsection

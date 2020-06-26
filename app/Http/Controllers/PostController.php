@@ -10,8 +10,9 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
+        $login_user = Auth::user();
         $posts = Post::with('user')->get(); //Post::all()のn+1問題対策
-        return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts, 'login_user' => $login_user]);
     }
 
     public function show(Request $request)
@@ -23,7 +24,11 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        if (Auth::user()) {
+            return view('posts.create');
+        } else {
+            return redirect('login');
+        }
     }
 
     public function store(Request $request)

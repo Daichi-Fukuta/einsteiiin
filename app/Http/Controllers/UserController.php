@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Ui\Presets\React;
 use App\User;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -18,17 +19,25 @@ class UserController extends Controller
   {
     $login_user = Auth::user();
     $user = User::find($request->id);
-    return view('users/show', ['login_user' => $login_user, 'user' => $user]);
+    $posts = $user->posts;
+    return view('users/show', [
+      'login_user' => $login_user,
+      'user' => $user,
+      'posts' => $posts,
+      ]);
   }
 
   public function edit(Request $request)
   {
-    $auth_user = Auth::user();
+    $login_user = Auth::user();
     $user = User::find($request->id);
-    if ($auth_user->id != $user->id) {
+    if ($login_user->id != $user->id) {
       return redirect('/');
     }
-    return view('users/edit', ['user' => $user]);
+    return view('users/edit', [
+      'user' => $user,
+      'login_user' => $login_user,
+      ]);
   }
 
   public function update(Request $request)

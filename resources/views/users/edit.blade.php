@@ -2,19 +2,18 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>編集</h1>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Edit') }}</div>
+                <div class="card-header">{{ __('プロフィール編集') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('user_update', ['id' => $user->id]) }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ニックネーム') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
@@ -28,7 +27,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
@@ -66,9 +65,19 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Edit') }}
+                                    {{ __('更新') }}
                                 </button>
                             </div>
+                        </div>
+                    </form>
+                    <form action="{{ route('user_remove', ['id' => $login_user->id]) }}" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{ $login_user->id }}">
+                        <div class="form-group row mt-3">
+                            <div class="col-md-6 offset-md-4">
+                                <input type="submit" value="このアカウントを削除する" class="btn btn-danger"
+                                    onclick='return confirm("このアカウント削除しますか？")'>
+                            <div>
                         </div>
                     </form>
                 </div>

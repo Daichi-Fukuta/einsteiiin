@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
-<form action="/posts/store" method="post">
-    <table>
+<div class="card col-6 m-auto text-center form-group p-5">
+    <form action="/posts/store" method="post">
         @csrf
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-        <tr><th>content: </th><td><textarea name="content"></textarea></td></tr>
-        <tr><th></th><td><input type="submit" value="投稿"></td></tr>
-    </table>
-</form>
+        <textarea class="form-control" id="content" name="content" rows="10"></textarea>
+        <input type="submit" value="投稿" class="btn btn-primary btn-block mt-3">
+    </form>
+</div>
 @endsection

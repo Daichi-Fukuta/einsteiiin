@@ -17,6 +17,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="css/posts/index.css">
 </head>
 <body>
     <div id="app">
@@ -30,10 +31,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="ml-3"><a href="/">投稿一覧</a></li>
-                        <li class="ml-3"><a href="/posts/create">新規投稿</a></li>
+                        <li class="ml-3"><a class="text-dark" href="/">投稿一覧</a></li>
+                        <li class="ml-3"><a class="text-dark" href="/posts/create">新規投稿</a></li>
                         @if (Auth::user())
-                            <li class="ml-3"><a href="/profile/{{ Auth::user()->id }}">マイページへ</a></li>
+                            <li class="ml-3"><a class="text-dark" href="/profile/{{ Auth::user()->id }}">マイページへ</a></li>
                         @endif
                     </ul>
 

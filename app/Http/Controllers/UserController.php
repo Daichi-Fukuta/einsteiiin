@@ -43,12 +43,14 @@ class UserController extends Controller
   public function update(Request $request)
   {
     $this->validate($request, User::$rules);
-    $user = Auth::user();
+    $user = User::find(Auth::user()->id);
     $param = [
       'name' => $request->name,
+      'description' => $request->description,
       'email' => $request->email,
     ];
-    User::find($user->id)->update($param);
+    $user->update($param);
+
     return redirect(route('user_show', ['id' => $user->id]));
   }
 

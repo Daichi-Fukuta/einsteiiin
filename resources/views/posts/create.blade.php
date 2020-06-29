@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="card col-6 m-auto text-center form-group p-5">
+<div class="card col-md-6 m-auto text-center form-group p-5">
     <form action="/posts/store" method="post">
         @csrf
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">

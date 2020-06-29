@@ -27,6 +27,19 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="description" rows="10" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="description" autofocus>{{ $user->description }}</textarea>
+                                @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">

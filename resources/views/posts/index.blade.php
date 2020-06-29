@@ -2,19 +2,14 @@
 @section('content')
 {{---------------------- ログインユーザーがいる ----------------------}}
 @if ($login_user)
-    <div class="m-3">
-        <div class="card col-3 float-left p-3">
+    <div class="m-2">
+        <div class="card col-md-3 float-left p-3 mt-3 d-none d-md-block">
             <p class="h1"><a class="text-dark" href="/profile/{{ $login_user->id }}">{{ $login_user->name }}</a></p>
             <hr>
-            <p>自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
-                自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
-                自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
-                自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介自己紹介
-            </p>
-            <p>こんな感じこんな感じこんな感じこんな感じこんな感じこんな感じこんな感じこんな感じ</p>
-            <hr>
-            <hr>
-            <hr>
+            @if ($login_user->description)
+                <p>{{ $login_user->description }}</p>
+                <hr>
+            @endif
             <h4>ToDo</h4>
             <hr>
             <ul>
@@ -27,7 +22,7 @@
         </div>
 
 
-        <div class="col-9 center-block  float-right">
+        <div class="col-md-9 center-block float-right mt-3">
             @foreach ($posts as $post)
                 <div class="card p-2">
                     <a class="text-dark" href="/posts/{{ $post->id }}">
@@ -41,7 +36,7 @@
 {{---------------------------------------------------------------------------------------------------}}
 @else
 {{---------------------- ログインユーザーがいない ----------------------}}
-    <div class="col-6 m-auto">
+    <div class="col-md-8 m-auto">
         @foreach ($posts as $post)
             <div class="card p-2">
                 <a class="text-dark" href="/posts/{{ $post->id }}">

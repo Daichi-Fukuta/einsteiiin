@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,7 @@ Route::get('posts/create', 'PostController@create')->name('posts_create');
 Route::post('posts/store', 'PostController@store')->name('posts_store');
 Route::get('posts/{id}', 'PostController@show')->name('posts_show');
 Route::post('posts/{id}/remove', 'PostController@remove')->name('post_remove');
+
+// Todo
+Route::post('/todo', 'TodoController@store')->name('todo_store');
+Route::post('todos/{id}/remove', 'TodoController@remove')->name('todo_remove');

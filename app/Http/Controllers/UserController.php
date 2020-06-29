@@ -20,10 +20,12 @@ class UserController extends Controller
     $login_user = Auth::user();
     $user = User::find($request->id);
     $posts = $user->posts;
+    $todos = $user->todos;
     return view('users/show', [
       'login_user' => $login_user,
       'user' => $user,
       'posts' => $posts,
+      'todos' => $todos,
       ]);
   }
 

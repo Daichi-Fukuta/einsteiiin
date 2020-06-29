@@ -9,7 +9,7 @@
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{ $post->id }}">
             <input type="submit" value="削除" class="btn btn-danger mt-5"
-                onclick='return confirm("この投稿を削除しますか？")'>
+                onclick='return confirm("このTodoを削除しますか？")'>
         </form>
     @endif
 </div>

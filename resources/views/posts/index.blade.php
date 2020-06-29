@@ -11,14 +11,35 @@
                 <hr>
             @endif
             <h4>ToDo</h4>
+            <form action="/todo" method="post">
+                @csrf
+                <input type="hidden" name="user_id" value="{{ $login_user->id }}">
+                <input type="text" name="content">
+                <input type="submit" value="作成" class="btn btn-primary">
+            </form>
             <hr>
-            <ul>
-                <li>ToDo</li><br>
-                <li>ToDo</li><br>
-                <li>ToDo</li><br>
-                <li>ToDo</li><br>
-                <li>ToDo</li><br>
-            </ul>
+            @if ($login_user->todos->count() == 0)
+                <p>Todoはありません。</p>
+            @else
+                @foreach ($login_user->todos as $todo)
+                    <table style="table-layout:fixed;width:100%;">
+                        <tr>
+                            <th class="mb-3" style="word-wrap:break-word;">{{ $todo->content }}</th>
+                            <td class="text-center">
+                                <form action="{{ route('todo_remove', ['id' => $todo->id]) }}" method="post">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="id" value="{{ $todo->id }}">
+                                    <input type="submit" value="完了" class="btn btn-success btn-sm">
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><hr></th>
+                            <td><hr></td>
+                        </tr>
+                    </table>
+                @endforeach
+            @endif
         </div>
 
 

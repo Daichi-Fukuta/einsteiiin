@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="card col-6 m-auto p-3">
+<div class="card col-md-6 m-auto p-3">
     <p class="h1"><a class="text-dark" href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a></p>
     <hr>
     <p>{{ $post->content }}</p>

@@ -18,6 +18,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="css/posts/index.css">
+
+    <style>
+        body, #app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -79,6 +87,11 @@
                 @yield('content')
             </div>
         </main>
+
+        <footer class="mt-auto py-5 bg-dark text-center">
+            <span class="text-white h1">Hiita</span><br>
+        </footer>
     </div>
+
 </body>
 </html>

@@ -21,7 +21,9 @@
         <form action="/comment" method="post">
             @csrf
             <input type="hidden" name="post_id" value="{{ $post->id }}">
-            <input type="hidden" name="user_id" value="{{ $login_user->id }}">
+            @if ($login_user)
+                <input type="hidden" name="user_id" value="{{ $login_user->id }}">
+            @endif
             <div class="form-group">
                 <textarea name="content" id="content" cols="30" rows="5" class="form-control"></textarea>
             </div>

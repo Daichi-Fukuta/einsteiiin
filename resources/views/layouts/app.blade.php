@@ -88,7 +88,7 @@
             </div>
         </main>
 
-        <footer class="mt-auto py-5 bg-dark text-center">
+        <footer class="mt-auto py-3 bg-dark text-center">
             <span class="text-white h1">Hiita</span><br>
         </footer>
     </div>

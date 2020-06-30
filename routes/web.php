@@ -35,3 +35,6 @@ Route::post('posts/{id}/remove', 'PostController@remove')->name('post_remove');
 // Todo
 Route::post('/todo', 'TodoController@store')->name('todo_store');
 Route::post('todos/{id}/remove', 'TodoController@remove')->name('todo_remove');
+
+// Comment
+Route::post('/comment', 'CommentController@store')->name('comment_store');

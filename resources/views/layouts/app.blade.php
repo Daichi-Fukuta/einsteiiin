@@ -29,7 +29,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mt-2">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm pt-4">
             <div class="container">
                 <a class="navbar-brand h1" href="{{ url('/') }}">Hiita</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

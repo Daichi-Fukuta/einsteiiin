@@ -40,14 +40,27 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="ml-3"><a class="text-dark" href="/">投稿一覧</a></li>
-                        <li class="ml-3"><a class="text-dark" href="/posts/create">新規投稿</a></li>
                         @if (Auth::user())
+                            <li class="ml-3"><a class="text-dark" href="/posts/create">新規投稿</a></li>
                             <li class="ml-3"><a class="text-dark" href="/profile/{{ Auth::user()->id }}">マイページへ</a></li>
+                            {{-- <li class="ml-3"><a class="text-dark" href="{{ route('logout') }}">ログアウト</a></li> --}}
+                            <div class="ml-3">
+                                <a class="text-dark" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">ログアウト</a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        @else
+                            <li class="ml-3"><a class="text-dark" href="{{ route('login') }}">ログイン</a></li>
+                            <li class="ml-3"><a class="text-dark" href="{{ route('register') }}">新規登録</a></li>
                         @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    {{-- <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -77,7 +90,7 @@
                                 </div>
                             </li>
                         @endguest
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </nav>

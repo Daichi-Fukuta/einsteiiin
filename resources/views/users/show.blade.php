@@ -12,18 +12,18 @@
             @if ($user->description)
                 <p class="mb-5">{{ $user->description }}</p>
             @endif
-            <h4>ToDo</h4>
+            <h4>これから学ぶこと</h4>
             @if ($login_user->id == $user->id)
                 <form action="/todo" method="post">
                     @csrf
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <input type="text" name="content">
-                    <input type="submit" value="作成" class="btn btn-primary">
+                    <input type="submit" value="作成" class="btn btn-primary btn-sm ml-2">
                 </form>
             @endif
             <hr>
             @if ($todos->count() == 0)
-                <p>Todoはありません。</p>
+                <p>これから学ぶことは登録されていません。</p>
             @else
                 @foreach ($todos as $todo)
                     <table style="table-layout:fixed;width:100%;">

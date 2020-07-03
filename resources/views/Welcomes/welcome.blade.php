@@ -85,7 +85,7 @@
                     ようこそ！
                     Hiitaへ！
                     <br>
-                    <a href="/">投稿一覧へ</a>
+                    <a href="posts">はじめる</a>
                 </div>
             </div>
         </div>

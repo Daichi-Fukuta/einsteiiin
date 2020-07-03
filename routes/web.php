@@ -27,9 +27,9 @@ Route::post('profile/{id}/remove', 'UserController@remove')->name('user_remove')
 
 // Post
 Route::get('/', 'PostController@index')->name('posts');
-Route::get('posts/create', 'PostController@create')->name('posts_create');
-Route::post('posts/store', 'PostController@store')->name('posts_store');
-Route::get('posts/{id}', 'PostController@show')->name('posts_show');
+Route::get('posts/create', 'PostController@create')->name('post_create');
+Route::post('posts/store', 'PostController@store')->name('post_store');
+Route::get('posts/{id}', 'PostController@show')->name('post_show');
 Route::post('posts/{id}/remove', 'PostController@remove')->name('post_remove');
 
 // Todo

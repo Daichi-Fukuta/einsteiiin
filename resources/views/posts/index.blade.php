@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
+<form action="/" method="get">
+    <input type="text" name="keyword" value="{{ $keyword }}">
+    <input type="submit" value="検索">
+</form>
 {{---------------------- ログインユーザーがいる ----------------------}}
 @if ($login_user)
     <div class="m-2">
@@ -44,7 +49,8 @@
 
 
         <div class="col-md-9 center-block float-right mt-3">
-            @foreach ($posts as $post)
+          @if ($search_posts->count())
+            @foreach ($search_posts as $post)
                 <div class="card p-2">
                     <a class="text-dark" href="/posts/{{ $post->id }}">
                       <h4>{{ $post->user->name }}</h4>
@@ -52,20 +58,27 @@
                     </a>
                 </div>
             @endforeach
+          @else
+              <span class="text-center">「{{ $keyword }}」</span> <span>に関する投稿は見つかりませんでした...</span>
+          @endif
         </div>
     </div>
 {{---------------------------------------------------------------------------------------------------}}
 @else
 {{---------------------- ログインユーザーがいない ----------------------}}
     <div class="col-md-8 m-auto">
-        @foreach ($posts as $post)
-            <div class="card p-2">
-                <a class="text-dark" href="/posts/{{ $post->id }}">
-                  <h4>{{ $post->user->name }}</h4>
-                  <p>{{ $post->content }}</p>
-                </a>
-            </div>
-        @endforeach
+        @if ($search_posts->count())
+            @foreach ($search_posts as $post)
+                <div class="card p-2">
+                    <a class="text-dark" href="/posts/{{ $post->id }}">
+                      <h4>{{ $post->user->name }}</h4>
+                      <p>{{ $post->content }}</p>
+                    </a>
+                </div>
+            @endforeach
+        @else
+            <span class="text-center">「{{ $keyword }}」</span> <span>に関する投稿は見つかりませんでした...</span>
+        @endif
     </div>
 {{---------------------------------------------------------------------------------------------------}}
 @endif

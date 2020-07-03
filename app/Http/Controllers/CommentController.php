@@ -15,6 +15,6 @@ class CommentController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $comment->fill($form)->save();
-        return redirect(route('posts_show', ['id' => $post_id]));
+        return redirect(route('post_show', ['id' => $post_id]));
     }
 }

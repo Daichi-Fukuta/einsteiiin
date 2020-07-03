@@ -16,20 +16,28 @@
     </div>
     <br><br>
 
-
-    <div class="card col-md-6 m-auto p-3 ">
-        <form action="/comment" method="post">
-            @csrf
-            <input type="hidden" name="post_id" value="{{ $post->id }}">
-            @if ($login_user)
-                <input type="hidden" name="user_id" value="{{ $login_user->id }}">
-            @endif
-            <div class="form-group">
-                <textarea name="content" id="content" cols="30" rows="5" class="form-control"></textarea>
-            </div>
-            <input type="submit" value="コメント" class="btn btn-primary">
-        </form>
-    </div>
+    @if ($login_user)
+        <div class="card col-md-6 m-auto p-3 ">
+            <form action="/comment" method="post">
+                @csrf
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <input type="hidden" name="user_id" value="{{ $login_user->id }}">
+                <div class="form-group">
+                    <textarea name="content" id="content" cols="30" rows="5" class="form-control"></textarea>
+                </div>
+                <input type="submit" value="コメント" class="btn btn-primary">
+            </form>
+        </div>
+      @else
+          <div class="card col-md-6 m-auto p-3">
+              <textarea cols="30" rows="10" readonly="readonly" class="text-secondary h4">
+                
+                
+                
+                                  ※コメントをするにはログインが必要です。
+              </textarea>
+          </div>
+      @endif
     <br><br>
     
     @if ($post->comments->count() != 0)

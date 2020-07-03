@@ -30,12 +30,7 @@
         </div>
       @else
           <div class="card col-md-6 m-auto p-3">
-              <textarea cols="30" rows="10" readonly="readonly" class="text-secondary h4">
-                
-                
-                
-                                  ※コメントをするにはログインが必要です。
-              </textarea>
+              <textarea cols="30" rows="10" readonly="readonly" class="text-secondary">※コメントをするにはログインが必要です。</textarea>
           </div>
       @endif
     <br><br>

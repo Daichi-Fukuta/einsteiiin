@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
+<div class="mb-3 ml-3">
 <form action="/" method="get">
-    <input type="text" name="keyword" value="{{ $keyword }}">
+    <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワード">
     <input type="submit" value="検索">
 </form>
+</div>
 {{---------------------- ログインユーザーがいる ----------------------}}
 @if ($login_user)
     <div class="m-2">

@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
 {{---------------------- ログインユーザーがいる ----------------------}}
 @if ($login_user)
     <div class="mb-3 ml-3">
         <form action="/" method="get">
             <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワード">
-            <input type="submit" value="検索">
+            <input type="submit" value="検索" class="btn btn-primary btn-sm">
         </form>
     </div>
     <div class="m-2">
@@ -80,7 +79,7 @@
             <div class="mb-3">
                 <form action="/" method="get">
                     <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワード">
-                    <input type="submit" value="検索">
+                    <input type="submit" value="検索" class="btn btn-primary btn-sm">
                 </form>
             </div>
             @if ($search_posts->count())

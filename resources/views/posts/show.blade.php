@@ -38,7 +38,7 @@
     @if ($post->comments->count() != 0)
         @foreach ($post->comments as $comment)
             <div class="card col-md-6 m-auto p-3 ">
-                <p class="h1">{{ $comment->user->name }}</p>
+                <a class="text-dark" href="/profile/{{ $comment->user->id }}"><p class="h1">{{ $comment->user->name  }}</p></a>
                 <hr>
                 <p>{{ $comment->content }}</p>
             </div>

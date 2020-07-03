@@ -29,9 +29,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm mt-2">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">Hiita</a>
+                <a class="navbar-brand h1" href="{{ url('/') }}">Hiita</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,12 +39,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="ml-3"><a class="text-dark" href="/">投稿一覧</a></li>
+                        <li class="ml-3 mb-3"><a class="text-dark" href="/">投稿一覧</a></li>
                         @if (Auth::user())
-                            <li class="ml-3"><a class="text-dark" href="/posts/create">新規投稿</a></li>
-                            <li class="ml-3"><a class="text-dark" href="/profile/{{ Auth::user()->id }}">マイページへ</a></li>
+                            <li class="ml-3 mb-3"><a class="text-dark" href="/posts/create">新規投稿</a></li>
+                            <li class="ml-3 mb-3"><a class="text-dark" href="/profile/{{ Auth::user()->id }}">マイページへ</a></li>
                             {{-- <li class="ml-3"><a class="text-dark" href="{{ route('logout') }}">ログアウト</a></li> --}}
-                            <div class="ml-3">
+                            <div class="ml-3 mb-3">
                                 <a class="text-dark" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">ログアウト</a>
@@ -54,8 +54,8 @@
                                 </form>
                             </div>
                         @else
-                            <li class="ml-3"><a class="text-dark" href="{{ route('login') }}">ログイン</a></li>
-                            <li class="ml-3"><a class="text-dark" href="{{ route('register') }}">新規登録</a></li>
+                            <li class="ml-3 mb-3"><a class="text-dark" href="{{ route('login') }}">ログイン</a></li>
+                            <li class="ml-3 mb-3"><a class="text-dark" href="{{ route('register') }}">新規登録</a></li>
                         @endif
                     </ul>
 

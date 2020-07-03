@@ -67,13 +67,16 @@
 {{---------------------------------------------------------------------------------------------------}}
 @else
 {{---------------------- ログインユーザーがいない ----------------------}}
-    <h1 class="text-center mb-5">
-        ようこそ！Hiitaへ！<br><br>
-        自分の考えたことや、<br><br>
-        最近知った知識をみんなと共有しよう！
-        さっそくはじめよう！<br><br>
-        <a href="register">はじめる</a>
-    </h1>
+    <div class="text-center mb-5 mt-5">
+        <h1 class="text-center title">ようこそ！Hiitaへ！</h1><br><br>
+        <p class="h5">自分の考えたことや、学んだ知識をみんなと共有しよう！</p><br><br>
+        <p class="h5">では、はじめに1つ。</p><br><br>
+        <p class="h5">こんなことを言った人がいました。</p><br><br>
+        <em class="h4 mincho">“どうして自分を責めるんですか？他人がちゃんと必要なときに責めてくれるんだから、いいじゃないですか。”</em><br><br>
+        <img src="{{ asset('/img/img.jpg') }}" alt="アインシュタインの画像" class="img-fluid"><br><br>
+        <p>アルベルト・アインシュタイン Albert Einstein 理論物理学者 ノーベル物理学賞受賞 1879～1955</p><br>
+        <a class="h3" href="register">さっそくはじめる</a>
+    </div>
     <div class="mb-5">
         <div class="col-md-8 m-auto">
             <div class="mb-3">

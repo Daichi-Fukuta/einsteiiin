@@ -19,7 +19,8 @@ class UserController extends Controller
   {
     $login_user = Auth::user();
     $user = User::find($request->id);
-    $posts = $user->posts;
+    // $posts = $user->posts;
+    $posts = Post::where('user_id', $user->id)->paginate(10);
     $todos = $user->todos;
     return view('users/show', [
       'login_user' => $login_user,

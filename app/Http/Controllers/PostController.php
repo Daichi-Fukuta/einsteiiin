@@ -17,7 +17,7 @@ class PostController extends Controller
         if (!empty($keyword)) {
           $query->where('content', 'LIKE', "%{$keyword}%");
         }
-        $search_posts = $query->orderBy('created_at', 'desc')->get();
+        $search_posts = $query->orderBy('created_at', 'desc')->paginate(10);
         return view('posts.index', [
             //'posts' => $posts,
             'login_user' => $login_user,

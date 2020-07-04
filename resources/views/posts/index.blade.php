@@ -3,11 +3,16 @@
 {{---------------------- ログインユーザーがいる ----------------------}}
 @if ($login_user)
     <div class="mb-3 ml-3">
-        <form action="/" method="get">
-            <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワード">
-            <input type="submit" value="検索" class="btn btn-primary btn-sm">
-        </form>
-    </div>
+          <form action="/" method="get">
+              <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワード">
+              <input type="submit" value="検索" class="btn btn-primary btn-sm">
+          </form>
+          @if (!$keyword == null)
+              @unless ($search_posts->count() == 0)
+                  <p class="mt-2">「{{ $keyword }}」に関する投稿は「{{ $search_posts->count() }}」件見つかりました。</p>
+              @endunless
+          @endif
+      </div>
     <div class="m-2">
         <div class="card col-md-3 float-left p-3 mt-3 d-none d-md-block">
             <p class="h1"><a class="text-dark" href="/profile/{{ $login_user->id }}">{{ $login_user->name }}</a></p>
@@ -48,7 +53,6 @@
             @endif
         </div>
 
-
         <div class="col-md-9 center-block float-right mt-3 mb-5">
           @if ($search_posts->count())
             @foreach ($search_posts as $post)
@@ -59,6 +63,7 @@
                     </a>
                 </div>
             @endforeach
+            <p>{{ $search_posts->links() }}</p>
           @else
               <span class="text-center">「{{ $keyword }}」</span> <span>に関する投稿は見つかりませんでした...</span>
           @endif
@@ -74,7 +79,8 @@
         <em class="h4 mincho">“どうして自分を責めるんですか？他人がちゃんと必要なときに責めてくれるんだから、いいじゃないですか。”</em><br><br>
         <img src="{{ asset('/img/img.jpg') }}" alt="アインシュタインの画像" class="img-fluid"><br><br>
         <p>アルベルト・アインシュタイン Albert Einstein 理論物理学者 ノーベル物理学賞受賞 1879～1955</p><br>
-        <a class="h3" href="register">さっそくはじめる</a>
+        <p class="mb-5 h4"><a class="text-white bg-primary p-3 rounded-pill" href="register">さっそくはじめる</a></p>
+        <p><a class="h4" href="login">既に登録している方はこちら</a></p>
     </div>
     <div class="mb-5">
         <div class="col-md-8 m-auto">
@@ -83,6 +89,11 @@
                     <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワード">
                     <input type="submit" value="検索" class="btn btn-primary btn-sm">
                 </form>
+                @if (!$keyword == null)
+                    @unless ($search_posts->count() == 0)
+                        <p class="mt-2">「{{ $keyword }}」に関する投稿は「{{ $search_posts->count() }}」件見つかりました。</p>
+                    @endunless
+                @endif
             </div>
             @if ($search_posts->count())
                 @foreach ($search_posts as $post)
@@ -96,6 +107,7 @@
             @else
                 <span class="text-center">「{{ $keyword }}」</span> <span>に関する投稿は見つかりませんでした...</span>
             @endif
+            <p class="mt-3">{{ $search_posts->links() }}</p>
         </div>
     </div>
 {{---------------------------------------------------------------------------------------------------}}

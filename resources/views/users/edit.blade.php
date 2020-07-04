@@ -5,10 +5,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('プロフィール編集') }}</div>
+            <div class="mt-5">
+                <div class="text-center h3 mb-5">{{ __('プロフィール編集') }}</div>
 
-                <div class="card-body">
+                <div>
                     <form method="POST" action="{{ route('user_update', ['id' => $user->id]) }}">
                         @csrf
 
@@ -17,7 +17,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
-                                <span style="color: rgb(159, 159, 159);">※名前は3文字以上で入力してください</span>
+                                <span style="color: rgb(159, 159, 159);">※3文字以上で入力してください</span>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -73,7 +73,7 @@
 @else
 {{---------------------- ログインユーザーがいない ----------------------}}
     <div class="text-center mb-5 mt-5">
-        <h1 class="text-center title">ようこそ！Hiitaへ！</h1><br><br>
+        <h1 class="text-center title">ようこそ！Einsteinへ！</h1><br><br>
         <p class="h5">自分の考えたことや、学んだ知識をみんなと共有しよう！</p><br><br>
         <p class="h5">こんなことを言った人がいました。</p><br><br>
         <em class="h4 mincho">“どうして自分を責めるんですか？他人がちゃんと必要なときに責めてくれるんだから、いいじゃないですか。”</em><br><br>

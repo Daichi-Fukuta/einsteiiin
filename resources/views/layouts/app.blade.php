@@ -31,7 +31,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm pt-4">
             <div class="container">
-                <a class="navbar-brand h1" href="{{ url('/') }}">Hiita</a>
+                <a class="navbar-brand h1" href="{{ url('/') }}">Einstein</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -102,7 +102,7 @@
         </main>
 
         <footer class="mt-auto py-3 bg-dark text-center">
-            <span class="text-white h1">Hiita</span><br>
+            <span class="text-white h1">Einstein</span><br>
         </footer>
     </div>
 

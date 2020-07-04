@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('新規登録') }}</div>
+            <div class="mt-5">
+                <div class="text-center h3">{{ __('新規登録') }}</div>
 
-                <div class="card-body">
+                <div class="mt-4">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

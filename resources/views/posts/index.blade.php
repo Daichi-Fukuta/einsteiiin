@@ -9,7 +9,7 @@
           </form>
           @if (!$keyword == null)
               @unless ($search_posts->count() == 0)
-                  <p class="mt-2">「{{ $keyword }}」に関する投稿は「{{ $search_posts->count() }}」件見つかりました。</p>
+                  <p class="mt-2">「{{ $keyword }}」に関する投稿は「{{ $search_posts->count() }}」件見つかりました！</p>
               @endunless
           @endif
       </div>
@@ -91,7 +91,7 @@
                 </form>
                 @if (!$keyword == null)
                     @unless ($search_posts->count() == 0)
-                        <p class="mt-2">「{{ $keyword }}」に関する投稿は「{{ $search_posts->count() }}」件見つかりました。</p>
+                        <p class="mt-2">「{{ $keyword }}」に関する投稿は「{{ $search_posts->count() }}」件見つかりました！</p>
                     @endunless
                 @endif
             </div>

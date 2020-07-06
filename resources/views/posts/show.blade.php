@@ -5,7 +5,6 @@
         <p class="h1"><a class="text-dark" href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a></p>
         <hr>
         <p>{{ $post->content }}</p>
-
         @if ($login_user && $login_user->id == $post->user->id)
             <form action="{{ route('post_remove', ['id' => $post->id]) }}" method="post">
                 {{ csrf_field() }}
@@ -14,6 +13,7 @@
                     onclick='return confirm("この投稿を削除しますか？")'>
             </form>
         @endif
+        <p class="mt-3">{{ $post->created_at }}</p>
     </div>
     <br><br>
 
@@ -39,9 +39,10 @@
     @if ($post->comments->count() != 0)
         @foreach ($post->comments as $comment)
             <div class="card col-md-6 m-auto p-3 ">
-                <a class="text-dark" href="/profile/{{ $comment->user->id }}"><p class="h1">{{ $comment->user->name  }}</p></a>
+                <p class="h1"><a class="text-dark" href="/profile/{{ $comment->user->id }}">{{ $comment->user->name  }}</a></p>
                 <hr>
                 <p>{{ $comment->content }}</p>
+                <p>{{ $post->created_at }}</p>
             </div>
         @endforeach
     @else

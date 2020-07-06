@@ -60,6 +60,7 @@
                     <a class="text-dark" href="/posts/{{ $post->id }}">
                       <h4>{{ $post->user->name }}</h4>
                       <p>{{ $post->content }}</p>
+                      <p>{{ $post->created_at }}</p>
                     </a>
                 </div>
             @endforeach
@@ -101,6 +102,7 @@
                         <a class="text-dark" href="/posts/{{ $post->id }}">
                           <h4>{{ $post->user->name }}</h4>
                           <p>{{ $post->content }}</p>
+                          <p>{{ $post->created_at }}</p>
                         </a>
                     </div>
                 @endforeach

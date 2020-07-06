@@ -5,7 +5,8 @@
         <p class="h1"><a class="text-dark" href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a></p>
         <hr>
         <p>{{ $post->content }}</p>
-        @if ($login_user)
+
+        @if ($login_user && $login_user->id == $post->user->id)
             <form action="{{ route('post_remove', ['id' => $post->id]) }}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $post->id }}">

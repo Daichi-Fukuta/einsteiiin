@@ -20,7 +20,7 @@ class UserController extends Controller
     $login_user = Auth::user();
     $user = User::find($request->id);
     // $posts = $user->posts;
-    $posts = Post::where('user_id', $user->id)->paginate(10);
+    $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(10);
     $todos = $user->todos;
     return view('users/show', [
       'login_user' => $login_user,

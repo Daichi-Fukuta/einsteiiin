@@ -56,7 +56,7 @@
         <div class="col-md-9 center-block float-right mt-3 mb-5">
           @if ($search_posts->count())
             @foreach ($search_posts as $post)
-                <div class="card p-2">
+                <div class="card p-2 mb-1">
                     <a class="text-dark" href="/posts/{{ $post->id }}">
                       <h4>{{ $post->user->name }}</h4>
                       <p>{{ $post->content }}</p>
@@ -98,7 +98,7 @@
             </div>
             @if ($search_posts->count())
                 @foreach ($search_posts as $post)
-                    <div class="card p-2">
+                    <div class="card p-2 mb-1">
                         <a class="text-dark" href="/posts/{{ $post->id }}">
                           <h4>{{ $post->user->name }}</h4>
                           <p>{{ $post->content }}</p>

@@ -50,7 +50,7 @@
 
         @if ($posts->count() == 0)
             <div class="col-md-9 center-block float-right mt-3">
-                <div class="card p-2 text-center">
+                <div class="card p-3 text-center">
                   投稿がありません。
                 </div>
             </div>

@@ -72,15 +72,15 @@
 {{---------------------------------------------------------------------------------------------------}}
 @else
 {{---------------------- ログインユーザーがいない ----------------------}}
-    <div class="text-center mb-5 mt-5">
-        <h1 class="text-center title">ようこそ！Einsteinへ！</h1><br><br>
-        <p class="h5">自分の考えたことや、学んだ知識をみんなと共有しよう！</p><br><br>
-        <p class="h5">こんなことを言った人がいました。</p><br><br>
-        <em class="h4 mincho">“どうして自分を責めるんですか？他人がちゃんと必要なときに責めてくれるんだから、いいじゃないですか。”</em><br><br>
-        <img src="{{ asset('/img/img.jpg') }}" alt="アインシュタインの画像" class="img-fluid"><br><br>
-        <p>アルベルト・アインシュタイン Albert Einstein 理論物理学者 ノーベル物理学賞受賞 1879～1955</p><br>
+    <div class="text-center mb-5 mt-3 p-3">
+        <h1 class="text-center title mb-5">ようこそ！Einsteinへ！</h1>
+        <p class="h5 mb-5">自分の考えたことや、学んだ知識をみんなと共有しよう！</p>
+        <p class="h5 mb-5">こんなことを言った人がいました。</p>
+        <p class="mb-5"><em class="h4 mincho">“どうして自分を責めるんですか？他人がちゃんと必要なときに責めてくれるんだから、いいじゃないですか。”</em></p>
+        <p class="mb-5"><img src="{{ asset('/img/img.jpg') }}" alt="アインシュタインの画像" class="img-fluid"></p>
+        <p class="mb-5">アルベルト・アインシュタイン Albert Einstein 理論物理学者 ノーベル物理学賞受賞 1879～1955</p>
         <p class="mb-5 h4"><a class="text-white bg-primary p-3 rounded-pill" href="register">さっそくはじめる</a></p>
-        <p><a class="h4" href="login">既に登録している方はこちら</a></p>
+        <p><a class="h4 mb-5" href="login">既に登録している方はこちら</a></p>
     </div>
     <div class="mb-5">
         <div class="col-md-8 m-auto">

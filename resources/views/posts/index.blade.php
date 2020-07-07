@@ -58,9 +58,9 @@
             @foreach ($search_posts as $post)
                 <div class="card p-2 mb-1">
                     <a class="text-dark" href="/posts/{{ $post->id }}">
-                      <h4>{{ $post->user->name }}</h4>
+                      <p class="h4">{{ $post->user->name }}</p>
                       <p>{{ $post->content }}</p>
-                      <p>{{ $post->created_at }}</p>
+                      <p>{{ $post->created_at->format('Y年m月d日H時i分') }}</p>
                     </a>
                 </div>
             @endforeach
@@ -100,9 +100,9 @@
                 @foreach ($search_posts as $post)
                     <div class="card p-2 mb-1">
                         <a class="text-dark" href="/posts/{{ $post->id }}">
-                          <h4>{{ $post->user->name }}</h4>
+                          <p class="h4">{{ $post->user->name }}</p>
                           <p>{{ $post->content }}</p>
-                          <p>{{ $post->created_at }}</p>
+                          <p>{{ $post->created_at->format('Y年m月d日H時i分') }}</p>
                         </a>
                     </div>
                 @endforeach

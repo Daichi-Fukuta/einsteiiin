@@ -2,7 +2,7 @@
 @section('content')
 <div>
     <div class="card col-md-6 m-auto p-3">
-        <p class="h1"><a class="text-dark" href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a></p>
+        <p class="h4"><a class="text-dark" href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a></p>
         <hr>
         <p>{{ $post->content }}</p>
         @if ($login_user && $login_user->id == $post->user->id)
@@ -13,7 +13,7 @@
                     onclick='return confirm("この投稿を削除しますか？")'>
             </form>
         @endif
-        <p class="mt-3">{{ $post->created_at }}</p>
+        <p class="mt-3">{{ $post->created_at->format('Y年m月d日H時i分') }}</p>
     </div>
     <br><br>
 
@@ -32,6 +32,7 @@
       @else
           <div class="card col-md-6 m-auto p-3">
               <textarea cols="30" rows="10" readonly="readonly" class="text-secondary">※コメントをするにはログインが必要です。</textarea>
+              <p class="mt-5 mb-3 h6 text-center"><a class="text-white bg-primary p-3 rounded-pill" href="/login">ログインする</a></p>
           </div>
       @endif
     <br><br>
@@ -40,10 +41,10 @@
         @foreach ($post->comments as $comment)
             <div class="mb-1">
                 <div class="card col-md-6 p-3 m-auto">
-                    <p class="h1"><a class="text-dark" href="/profile/{{ $comment->user->id }}">{{ $comment->user->name  }}</a></p>
+                    <p class="h4"><a class="text-dark" href="/profile/{{ $comment->user->id }}">{{ $comment->user->name  }}</a></p>
                     <hr>
                     <p>{{ $comment->content }}</p>
-                    <p>{{ $post->created_at }}</p>
+                    <p>{{ $post->created_at->format('Y年m月d日H時i分') }}</p>
                 </div>
             </div>
         @endforeach

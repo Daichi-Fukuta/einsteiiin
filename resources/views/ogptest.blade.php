@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
+@extends('layout')
+@section('ogp')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,8 +23,10 @@
         <title>{{ config('app.name') }}</title>
     @endif
     <meta name="description" content="自分の印象をフォロワーに簡単に聞けるサービス">
-</head>
+@endsection
 <body>
-    <h1>ogptest</h1>
+    @section('main')
+        <h1>ogptest</h1>
+    @endsection
 </body>
 </html>

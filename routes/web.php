@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('ogptest', function() {
+    return view('ogptest');
+});
+
 Route::get('welcome', 'WelcomeController@welcome')->name('welcome');
 Auth::routes();
 

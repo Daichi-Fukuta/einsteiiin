@@ -1,4 +1,4 @@
-@extends('Layout.main')
+@extends('layout')
 @section('ogp')
     <meta property="og:site_name" content="Mint"/>
     <meta property="og:type" content="website"/>

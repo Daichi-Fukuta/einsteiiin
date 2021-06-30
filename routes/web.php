@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('ogptest', function() {
-    return view('ogptest');
-});
-
 Route::get('welcome', 'WelcomeController@welcome')->name('welcome');
 Auth::routes();
 
@@ -35,7 +30,7 @@ Route::post('posts/store', 'PostController@store')->name('post_store');
 Route::get('posts/{id}', 'PostController@show')->name('post_show');
 Route::post('posts/{id}/remove', 'PostController@remove')->name('post_remove');
 
-// Todo
+// /Todo
 Route::post('/todo', 'TodoController@store')->name('todo_store');
 Route::post('todos/{id}/remove', 'TodoController@remove')->name('todo_remove');
 
